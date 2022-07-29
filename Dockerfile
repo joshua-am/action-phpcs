@@ -10,14 +10,14 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 
 ENV COMPOSER_NO_INTERACTION 1
 
+RUN composer config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+
 RUN composer global require --dev \
     "squizlabs/php_codesniffer" \
     "dealerdirect/phpcodesniffer-composer-installer" \
     "object-calisthenics/phpcs-calisthenics-rules" \
     "phpcompatibility/php-compatibility" \
     "wp-coding-standards/wpcs"
-
-RUN composer config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
 
 ENV PATH $PATH:$COMPOSER_HOME/vendor/bin
 
